@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 import { emoji } from './json/emoji.json'
 import Clipboard from 'clipboard'
+import 'tyh-ui2/style/index.css'
+import { Message } from 'tyh-ui2'
 
-const leftCopyCode = (node: string): void => {
+const copyCode = (node: string): void => {
   new Clipboard(node)
-}
-
-const rightCopyCode = (node: string): void => {
-  new Clipboard(node)
+  Message({ message: '复制成功', type: 'primary', round: true })
 }
 </script>
 
@@ -21,8 +20,8 @@ const rightCopyCode = (node: string): void => {
       <div class="emoji">{{ item }}</div>
 
       <div class="option">
-        <div class="left" :data-clipboard-text="`:${key}:`" @click="leftCopyCode('.left')">复制代码</div>
-        <div class="right" :data-clipboard-text="item" @click="rightCopyCode('.right')">复制表情</div>
+        <div class="left" :data-clipboard-text="`:${key}:`" @click="copyCode('.left')">复制代码</div>
+        <div class="right" :data-clipboard-text="item" @click="copyCode('.right')">复制表情</div>
       </div>
     </li>
   </ul>

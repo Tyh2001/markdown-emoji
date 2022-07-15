@@ -4,6 +4,7 @@ specifiers:
   '@vitejs/plugin-vue': ^3.0.0
   clipboard: ^2.0.10
   sass: ^1.53.0
+  tyh-ui2: ^3.5.0
   typescript: ^4.6.4
   vite: ^3.0.0
   vue: ^3.2.37
@@ -12,6 +13,7 @@ specifiers:
 dependencies:
   clipboard: 2.0.11
   sass: 1.53.0
+  tyh-ui2: 3.5.0
   vue: 3.2.37
 
 devDependencies:
@@ -574,6 +576,10 @@ packages:
     engines: {node: '>=8.0'}
     dependencies:
       is-number: 7.0.0
+
+  /tyh-ui2/3.5.0:
+    resolution: {integrity: sha512-6Nvf+2tqihAqm02qhSlBoUpHKvQfknBFP3E5KklOWeoSDGU0VU2sPGLM2coOhX0+PvCE/nC7GGKNcg13XyW0Lg==}
+    dev: false
 
   /typescript/4.7.4:
     resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
