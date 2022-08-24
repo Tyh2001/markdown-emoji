@@ -1,103 +1,94 @@
 <script lang="ts" setup>
-import { emoji } from './json/emoji.json'
-import Clipboard from 'clipboard'
-import 'tyh-ui2/style/index.css'
-import { Message } from 'tyh-ui2'
+  import { emoji } from './json/emoji.json'
+  import Clipboard from 'clipboard'
+  import { FMessage, FButton, FCard, FBackTop } from 'fighting-design'
+  import 'fighting-design/theme/message.css'
+  import 'fighting-design/theme/button.css'
 
-const copyCode = (node: string): void => {
-  new Clipboard(node)
-  Message({ message: '复制成功', type: 'primary', round: true })
-}
+  const copyCode = (node: string): void => {
+    new Clipboard(node)
+    FMessage({
+      message: '复制成功',
+      type: 'primary',
+      round: true,
+    })
+  }
 </script>
 
 <template>
-  <h1 class="title">Markdown Emoji</h1>
+  <f-back-top>返回顶部</f-back-top>
 
-  <ul class="list">
-    <li v-for="(item, key, index) in emoji" :key="index" class="item">
-      <div class="num">{{ index + 1 }}</div>
+  <f-card title="Markdown Emoji">
+    <ul class="list">
+      <li v-for="(item, key, index) in emoji" :key="index" class="item">
+        <div class="emoji">{{ item }}</div>
 
-      <div class="emoji">{{ item }}</div>
-
-      <div class="option">
-        <div class="left" :data-clipboard-text="`:${key}:`" @click="copyCode('.left')">复制代码</div>
-        <div class="right" :data-clipboard-text="item" @click="copyCode('.right')">复制表情</div>
-      </div>
-    </li>
-  </ul>
+        <div class="option">
+          <f-button
+            simple
+            size="small"
+            type="primary"
+            :data-clipboard-text="`:${key}:`"
+            @click="copyCode('.left')"
+          >
+            复制代码
+          </f-button>
+          <f-button
+            simple
+            size="small"
+            type="success"
+            :data-clipboard-text="item"
+            @click="copyCode('.right')"
+          >
+            复制表情
+          </f-button>
+        </div>
+      </li>
+    </ul>
+  </f-card>
 </template>
 
 <style lang="scss" scoped>
-* {
-  margin: 0;
-  padding: 0
-}
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-.title {
-  text-align: center;
-  color: #333;
-}
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
 
-.list {
-  display: flex;
-  flex-wrap: wrap;
-
-  .item {
-    position: relative;
-    list-style: none;
-    width: 140px;
-    height: 140px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid #eee;
-
-    .num {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      font-size: 12px;
-      color: rgb(207, 207, 207);
-    }
-
-    .emoji {
-      font-size: 30px;
-      cursor: default;
-    }
-
-    &:hover {
-      .option {
-        transition: .6s;
-        opacity: 1;
-      }
-    }
-
-    .option {
-      display: flex;
+    .item {
+      position: relative;
+      list-style: none;
+      width: 140px;
+      height: 140px;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      opacity: 0;
+      flex-direction: column;
 
-      .left,
-      .right {
-        width: 50%;
-        font-size: 14px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        height: 30px;
-        cursor: pointer;
+      .emoji {
+        font-size: 30px;
+        cursor: default;
+      }
 
-        &:hover {
-          transition: .4s;
-          background: #eee;
-          color: #2d5af1;
+      &:hover {
+        .option {
+          transition: 0.6s;
+          opacity: 1;
         }
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
       }
     }
   }
-}
 </style>
