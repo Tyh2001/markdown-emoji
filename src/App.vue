@@ -31,7 +31,7 @@
     <f-link
       target="_black"
       type="primary"
-      url="https://github.com/Tyh2001/markdown-emoji"
+      href="https://github.com/Tyh2001/markdown-emoji"
     >
       Github
     </f-link>
