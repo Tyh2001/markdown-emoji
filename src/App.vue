@@ -29,7 +29,7 @@
       表情，支持复制原表情和复制表情编码进行使用。
     </f-text>
     <f-link
-      target="_black"
+      target="_blank"
       type="primary"
       href="https://github.com/Tyh2001/markdown-emoji"
     >
