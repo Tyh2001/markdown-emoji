@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "clipboard": "^2.0.10",
-    "fighting-design": "0.6.2-alpha.2",
+    "fighting-design": "0.6.2-alpha.6",
     "sass": "^1.53.0",
     "tyh-ui2": "^3.5.0",
     "vue": "^3.2.37"
